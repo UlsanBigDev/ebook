@@ -42,12 +42,18 @@ public class Book : MonoBehaviour, IBook
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) { // 좌클릭
-            SetPage(this.page + 1);
+            if (this.page < storys.Length-1) 
+            {
+                SetPage(this.page + 1);
+            }            
         }
 
         if (Input.GetMouseButtonDown(1)) // 우클릭
         {
-            SetPage(this.page - 1);
+            if (this.page > 0)
+            {
+                SetPage(this.page - 1);
+            }
         }
 
     }
