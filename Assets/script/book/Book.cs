@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Book : MonoBehaviour, IBook
 {
@@ -41,14 +42,14 @@ public class Book : MonoBehaviour, IBook
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) { // 좌클릭
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) { // 좌클릭
             if (this.page < storys.Length-1) 
             {
                 SetPage(this.page + 1);
             }            
         }
 
-        if (Input.GetMouseButtonDown(1)) // 우클릭
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject()) // 우클릭
         {
             if (this.page > 0)
             {
