@@ -60,6 +60,8 @@ public class Book : MonoBehaviour, IBook
 
     public void OnPageChange(int page)
     {
+        AudioSource audio = nowStory.GetComponent<AudioSource>();
+        audio.Play();
         Debug.Log("페이지 체인지 이벤트");
     }
 }
