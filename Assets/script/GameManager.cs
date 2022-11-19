@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public Slider volumeSlider;
     public System.Single currentVolume;
+
+    public Book currentBook;
     void Start()
     {
         
@@ -21,8 +23,12 @@ public class GameManager : MonoBehaviour
     public void VolumeHandle(System.Single vol)
     {
         currentVolume = vol;
-    }
+        foreach (GameObject i in currentBook.storys)
+        {
+            i.GetComponent<AudioSource>().volume = vol/100f;
 
+        }
+    }
     public void SliderPop()
     {
         if(volumeSlider.gameObject.activeSelf == true)
