@@ -14,8 +14,14 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void SelectBook(int bookId) {
+    public void SelectBook(int bookId)
+    {
         Debug.Log("당신이 선택한 책의 아이디 : " + bookId);
         SceneManager.LoadScene("Book"+bookId);
+    }
+
+    public void BookEscape()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
